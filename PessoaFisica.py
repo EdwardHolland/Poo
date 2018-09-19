@@ -4,7 +4,7 @@ class PessoaFisica:
     __cpf = 0
     cnh = 0
     dataNascimento = 0
-    tituEleitor = 0
+    tituEleitor = bool
     _salario = 0
 
 

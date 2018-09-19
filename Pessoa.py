@@ -1,5 +1,6 @@
-import PessoaFisica
-class Pessoa(PessoaFisica):
+from PessoaFisica import *
+from PessoaJuridica import *
+class Pessoa(PessoaFisica, PessoaJuridica):
     altura = 0.00
     idade = 0
     nome = ""
@@ -36,6 +37,27 @@ pessoa.setNome('Eduardo')
 pessoa.setIdade(18)
 pessoa.setAltura(1.75)
 pessoa.setPeso(90)
-print('Nome: {} \nIdade: {} \nAltura: {} \nPeso: {}Kg'.format(pessoa.getNome(),pessoa.getIdade(),pessoa.getAltura(),pessoa.getPeso()))
-pessoa.andar()
-pessoa.falar()
+pessoa.setTituEleitor(False)
+
+print('==================VOTAR==================')
+if(pessoa.getIdade() >= 18):
+    if(pessoa.getTituEleitor() == True):
+        pessoa.vote()
+    else:
+        print('Você precisa tirar seu título de eleitor!')
+else:
+    print('Você não pode votar!')
+
+print('==========================================')
+print('===============Calcular IMC===============')
+imc = pessoa.getPeso()/(pessoa.getAltura()*pessoa.getAltura())
+print('Seu IMC é: {} '.format(imc))
+
+if(imc < 18,5):
+    print("{}, você está abaixo do peso!".format(pessoa.getNome()))
+if(imc > 18,5 & imc < 24,9):
+    print("{}, você está com o peso normal!".format(pessoa.getNome()))
+if(imc > 24,9 & imc < 29,9):
+    print('{}, você está com sobre peso!'.format(pessoa.getNome()))
+if(imc > 29,9):
+    print('{}, sua vida está em risco!'.format(pessoa.getNome()))
