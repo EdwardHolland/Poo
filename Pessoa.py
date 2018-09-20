@@ -4,7 +4,7 @@ class Pessoa(PessoaFisica, PessoaJuridica):
     altura = 0.00
     idade = 0
     nome = ""
-    __peso = 0
+    __peso = 0,0
 
     def setNome(self, nome):
         self.nome = nome
@@ -53,11 +53,13 @@ print('===============Calcular IMC===============')
 imc = pessoa.getPeso()/(pessoa.getAltura()*pessoa.getAltura())
 print('Seu IMC é: {} '.format(imc))
 
-if(imc < 18,5):
+if imc < 18.5:
     print("{}, você está abaixo do peso!".format(pessoa.getNome()))
-if(imc > 18,5 & imc < 24,9):
-    print("{}, você está com o peso normal!".format(pessoa.getNome()))
-if(imc > 24,9 & imc < 29,9):
+elif imc > 18.5 and imc < 24.9:
+    print('{}, você está com o peso normal!'.format(pessoa.getNome()))
+elif imc > 24.9 and imc < 29.9:
     print('{}, você está com sobre peso!'.format(pessoa.getNome()))
-if(imc > 29,9):
-    print('{}, sua vida está em risco!'.format(pessoa.getNome()))
+elif imc > 29.9:
+    print('{}, você está obeso!'.format(pessoa.getNome()))
+else:
+    print('Você precisa cuidar da sua saúde!')
